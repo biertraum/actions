@@ -4,7 +4,6 @@ echo "building ....."
 
 chown -R root:root .
 PROJECT_PATH="$(pwd)"
-INPUT_DISABLE_MODULES="Tagwork_Instance,Tagwork_Base"
 
 echo "currently in $PROJECT_PATH"
 
@@ -28,6 +27,8 @@ then
     ## fix magento error: connection default is not defined
     echo "<?php  return ['db' => [ 'table_prefix' => '', 'connection' => [ 'default' => [ 'host' => 'mysql', 'dbname' => 'magento', 'username' => 'root', 'password' => 'magento', 'model' => 'mysql4', 'engine' => 'innodb', 'initStatements' => 'SET NAMES utf8;', 'active' => '1' ] ]]];" > app/etc/env.php
     ## end fix ##
+
+    INPUT_DISABLE_MODULES="Tagwork_Instance,Tagwork_Base"
 
     if [ -n "$INPUT_DISABLE_MODULES"  ]
     then
