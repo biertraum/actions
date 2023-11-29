@@ -21,6 +21,6 @@ jobs:
 
     - name: Building magento-actions docker image
       run: |
-        docker build .  --tag ghcr.io/biertraum/biertraum-actions:1.0 --tag ghcr.io/biertraum/biertraum-actions:latest
-        docker push ghcr.io/biertraum/biertraum-actions:1.0
-        docker push ghcr.io/biertraum/biertraum-actions:latest
+        docker build .  --tag ghcr.io/biertraum/actions:1.0 --tag ghcr.io/biertraum/actions:latest
+        docker push ghcr.io/biertraum/actions:1.0
+        docker push ghcr.io/biertraum/actions:latest
