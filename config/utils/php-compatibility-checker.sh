@@ -56,3 +56,7 @@ then
 else
   echo "No match found"
 fi
+
+echo "Current PHP Version:"
+
+php -v
