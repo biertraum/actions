@@ -81,7 +81,7 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/biertraum/biertraum-actions:1.0'
+  image: 'docker://ghcr.io/biertraum/actions:1.0'
 branding:
   icon: 'arrow-up-circle'
   color: 'blue'
