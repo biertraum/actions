@@ -11,7 +11,7 @@ if [ -d "$PROJECT_PATH/magento" ]
 then
    cd "$PROJECT_PATH/magento"
 
-   /usr/local/bin/composer install --dry-run --no-dev --no-progress &> /dev/null
+   php7.2  /usr/local/bin/composer install --dry-run --no-dev --no-progress &> /dev/null
 
    COMPOSER_COMPATIBILITY=$?
 
