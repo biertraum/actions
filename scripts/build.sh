@@ -4,6 +4,7 @@ echo "building ....."
 
 chown -R root:root .
 PROJECT_PATH="$(pwd)"
+INPUT_DISABLE_MODULES="Tagwork_Instance,Tagwork_Base"
 
 echo "currently in $PROJECT_PATH"
 
