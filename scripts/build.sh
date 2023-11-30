@@ -28,16 +28,14 @@ then
     echo "<?php  return ['db' => [ 'table_prefix' => '', 'connection' => [ 'default' => [ 'host' => 'mysql', 'dbname' => 'magento', 'username' => 'root', 'password' => 'magento', 'model' => 'mysql4', 'engine' => 'innodb', 'initStatements' => 'SET NAMES utf8;', 'active' => '1' ] ]]];" > app/etc/env.php
     ## end fix ##
 
-    INPUT_DISABLE_MODULES="Tagwork_Instance,Tagwork_Base"
-
     if [ -n "$INPUT_DISABLE_MODULES"  ]
     then
       echo "These modules will be discarded during install process $INPUT_DISABLE_MODULES"
       [ -f app/etc/config.php ] && cp app/etc/config.php app/etc/config.php.orig
     fi
 
-    bash /opt/config/utils/pagebuilder-compatibility-checker.sh
-    bash /opt/config/utils/common-magento-installer.sh
+#    bash /opt/config/utils/pagebuilder-compatibility-checker.sh
+#    bash /opt/config/utils/common-magento-installer.sh
 
     ## Build static contents TODO Static Contact
 #    bash /opt/config/utils/custom-theme-builder.sh
