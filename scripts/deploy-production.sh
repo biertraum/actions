@@ -26,7 +26,7 @@ mkdir -p deployer/scripts/
 cp -R /opt/config/pipelines/scripts/production deployer/scripts/production
 
 echo 'creating bucket dir'
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null  production "mkdir $HOST_DEPLOY_PATH_BUCKET"
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null  production "mkdir -p $HOST_DEPLOY_PATH_BUCKET"
 
 ARCHIVES="deployer/scripts/production"
 
