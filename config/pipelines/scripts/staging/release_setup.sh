@@ -2,6 +2,11 @@
 
 set -e
 
+if [ ! -f app/etc/env.php ]
+then
+  cp app/etc/env.TEST.php app/etc/env.php
+fi
+
 # operation to make before the switch of the release folder
 # Generate code
 php bin/magento setup:di:compile
