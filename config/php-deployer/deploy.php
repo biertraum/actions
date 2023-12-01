@@ -31,7 +31,9 @@ set(
 );
 set(
     'shared_dirs', [
-        '{{magento_root}}/pub/media'
+        '{{magento_root}}/pub/media',
+        '{{magento_root}}/pub/log',
+        '{{magento_root}}/pub/pdf-documents',
     ]
 );
 set(
