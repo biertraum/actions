@@ -71,6 +71,11 @@ then
     fi
 
     rm app/etc/env.php
+    rm -rf artifacts
+    rm -rf packages
+    rm -rf phpserver
+    rm -rf setup
+    rm -rf patches
 fi
 
 cd $PROJECT_PATH
