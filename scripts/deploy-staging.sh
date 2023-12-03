@@ -49,6 +49,8 @@ php7.4 ./vendor/bin/dep deploy-bucket staging \
 # Run pre-release script in order to setup the server before magento deploy
 if [ -d "$PROJECT_PATH/magento" ]
 then
+  # link media to be able to run weltpixel less generation
+  ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null  staging "ln -sf $HOST_DEPLOY_PATH/shared/magento/pub/media $HOST_DEPLOY_PATH/release/magento/pub/media"
   ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null  staging "cd $HOST_DEPLOY_PATH/release/magento/ && /bin/bash $HOST_DEPLOY_PATH/deployer/scripts/staging/release_setup.sh"
 fi
 
