@@ -61,10 +61,6 @@ DEFAULT_DEPLOYER="deploy"
 if [ $INPUT_DEPLOYER = "no-permission-check" ]
 then
   DEFAULT_DEPLOYER="deploy:no-permission-check"
-  if [ ! -d "$PROJECT_PATH/magento" ]
-    then
-      DEFAULT_DEPLOYER="deploy:no-permission-check:pwa-only"
-  fi
 fi
 
 # deploy release
@@ -82,3 +78,5 @@ then
 fi
 
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null  staging "cd $HOST_DEPLOY_PATH_BUCKET && /bin/bash $HOST_DEPLOY_PATH/deployer/scripts/staging/post_release_cleanup.sh $INPUT_KEEP_RELEASES"
+
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null  staging "cluster-control login --pa_token='${MAXCLUSTER_TOKEN}' && cluster-control php:reload ${MAXCLUSTER_SERVER} && cluster-control logout"

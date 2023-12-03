@@ -7,7 +7,6 @@ then
   cp app/etc/env.LIVE.php app/etc/env.php
 fi
 
-
 # operation to make before the switch of the release folder
 # Generate code
 php bin/magento setup:di:compile
