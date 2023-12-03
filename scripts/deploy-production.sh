@@ -50,8 +50,8 @@ php7.4 ./vendor/bin/dep deploy-bucket production \
 if [ -d "$PROJECT_PATH/magento" ]
 then
   # link media to be able to run weltpixel less generation
-  ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null  staging "mv $HOST_DEPLOY_PATH/release/magento/pub/media $HOST_DEPLOY_PATH/release/magento/pub/media.orig"
-  ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null  staging "ln -sf $HOST_DEPLOY_PATH/shared/magento/pub/media $HOST_DEPLOY_PATH/release/magento/pub/media"
+  ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null  production "mv $HOST_DEPLOY_PATH/release/magento/pub/media $HOST_DEPLOY_PATH/release/magento/pub/media.orig"
+  ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null  production "ln -sf $HOST_DEPLOY_PATH/shared/magento/pub/media $HOST_DEPLOY_PATH/release/magento/pub/media"
   ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null  production "cd $HOST_DEPLOY_PATH/release/magento/ && /bin/bash $HOST_DEPLOY_PATH/deployer/scripts/production/release_setup.sh"
 fi
 
