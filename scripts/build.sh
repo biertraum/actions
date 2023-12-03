@@ -74,7 +74,6 @@ then
     rm -rf artifacts
     rm -rf packages
     rm -rf phpserver
-    rm -rf setup
     rm -rf patches
 fi
 
