@@ -7,14 +7,13 @@ use Deployer\Exception\Exception;
 require 'recipe/common.php';
 
 
-
 // Servers
 import('hosts.yaml');
 
 set('writable_use_sudo', '{{write_use_sudo}}');
 set('writable_mode', 'chmod'); // chmod, chown, chgrp or acl.
 set('deploy_path', "{{deploy_path_custom}}");
-set('keep_releases', function(){
+set('keep_releases', function () {
     return intval("{{deploy_keep_releases}}");
 });
 
@@ -52,32 +51,26 @@ task('deploy:update_code')->disable();
 // Tasks
 desc('Unpack bucket-commit');
 task(
-    'deploy:unpack-bucket', function() {
+    'deploy:unpack-bucket', function () {
     try {
         cd('{{host_bucket_path}}');
         run('mkdir -p temp');
         run('tar xfz {{bucket-commit}} -C temp');
-
+        
         if (test('[ -d temp/magento ]')) {
             info('releasing magento');
             run('cp -rf temp/magento {{release_path}}');
-        }
-        else info('magento backend release skipped');
-
-        if (test('[ -d temp/pwa-studio ]')) {
-            info('releasing pwa-studio');
-            run('cp -rf temp/pwa-studio {{release_path}}');
-        }else info('pwa-studio release skipped');
-
+        } else info('magento backend release skipped');
+        
         if (test('[ -d temp/deployer ]')) {
             info('releasing deployer');
             run('cp -rf temp/deployer {{deploy_path}}');
-        }else info('deployer release skipped');
-
+        } else info('deployer release skipped');
+        
         run('mv {{bucket-commit}} {{bucket-commit}}.back');
         run('rm temp -rf');
     } catch (\Exception $e) {
-        throw new Exception('No bucket-commit file found. '.$e->getMessage());
+        throw new Exception('No bucket-commit file found. ' . $e->getMessage());
     }
 }
 );

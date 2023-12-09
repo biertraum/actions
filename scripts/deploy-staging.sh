@@ -55,13 +55,13 @@ then
   ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null  staging "cd $HOST_DEPLOY_PATH/release/magento/ && /bin/bash $HOST_DEPLOY_PATH/deployer/scripts/staging/release_setup.sh"
 fi
 
-echo '------> Deploying release ...';
-
 DEFAULT_DEPLOYER="deploy"
 if [ $INPUT_DEPLOYER = "no-permission-check" ]
 then
   DEFAULT_DEPLOYER="deploy:no-permission-check"
 fi
+
+echo "------> Deploying release [$DEFAULT_DEPLOYER] ...";
 
 # deploy release
 php7.4 ./vendor/bin/dep $DEFAULT_DEPLOYER staging \
