@@ -71,8 +71,8 @@ then
     fi
 
     rm app/etc/env.php
-    rm -rf artifacts
-    rm -rf packages
+#    rm -rf artifacts
+#    rm -rf packages
     rm -rf phpserver
     rm -rf patches
 fi
