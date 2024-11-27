@@ -39,7 +39,7 @@ echo 'Deploying production ...';
 
 echo '------> Deploying bucket ...';
 # deploy bucket
-php7.4 ./vendor/bin/dep deploy-bucket production \
+php8.1 ./vendor/bin/dep deploy-bucket production \
 -o bucket-commit=$BUCKET_COMMIT \
 -o host_bucket_path=$HOST_DEPLOY_PATH_BUCKET \
 -o deploy_path_custom=$HOST_DEPLOY_PATH \
@@ -64,7 +64,7 @@ then
 fi
 
 # deploy release
-php7.4 ./vendor/bin/dep $DEFAULT_DEPLOYER production \
+php8.1 ./vendor/bin/dep $DEFAULT_DEPLOYER production \
 -o bucket-commit=$BUCKET_COMMIT \
 -o host_bucket_path=$HOST_DEPLOY_PATH_BUCKET \
 -o deploy_path_custom=$HOST_DEPLOY_PATH \
