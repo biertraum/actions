@@ -11,6 +11,9 @@ if [ -d "$PROJECT_PATH/magento" ]
 then
    cd "$PROJECT_PATH/magento"
 
+   echo "add github.com to known hosts"
+   mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
+
    /usr/local/bin/composer install --dry-run --no-dev --no-progress &> /dev/null
 
    COMPOSER_COMPATIBILITY=$?
