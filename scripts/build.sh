@@ -22,7 +22,7 @@ then
 
    set -e
 
-   /usr/local/bin/composer install --no-dev --no-progress
+   /usr/local/bin/composer install --no-dev --no-progress -vvv
 
     chmod +x bin/magento
 
