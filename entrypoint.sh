@@ -23,7 +23,7 @@ bash /opt/config/utils/search-engine-compatibility-checker.sh
 if [ "$INPUT_COMPOSER_VERSION" -ne 0 ]
 then
   echo "Forcing composer to match specified input argument"
-  php8.1 /usr/local/bin/composer self-update --2.2
+  php /usr/local/bin/composer self-update --2.2
 fi
 
 
