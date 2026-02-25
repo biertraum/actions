@@ -32,3 +32,4 @@ fi
 /usr/bin/php bin/magento weltpixel:css:generate --store bf_de
 /usr/bin/php bin/magento weltpixel:css:generate --store hirsch_de
 /usr/bin/php bin/magento weltpixel:css:generate --store meckatzer_de
+/usr/bin/php bin/magento weltpixel:css:generate --store andechser_de
