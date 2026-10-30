@@ -7,6 +7,8 @@ then
   cp app/etc/env.LIVE.php app/etc/env.php
 fi
 
+bin/apply-hotfixes.sh --check || exit 1
+
 # operation to make before the switch of the release folder
 # Generate code
 /usr/bin/php bin/magento setup:di:compile

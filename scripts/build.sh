@@ -11,7 +11,7 @@ if [ -d "$PROJECT_PATH/magento" ]
 then
    cd "$PROJECT_PATH/magento"
 
-   /usr/local/bin/composer install --dry-run --no-dev --no-progress &> /dev/null
+   /usr/local/bin/composer install --dry-run --no-dev --no-progress --no-scripts &> /dev/null
 
    COMPOSER_COMPATIBILITY=$?
 
@@ -19,7 +19,7 @@ then
 
    set -e
 
-   /usr/local/bin/composer install --no-dev --no-progress
+   /usr/local/bin/composer install --no-interaction --no-progress --ignore-platform-reqs --download-only --no-dev --no-autoloader
 
     chmod +x bin/magento
 
