@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "building ....."
+echo "building ......"
 
 chown -R root:root .
 PROJECT_PATH="$(pwd)"
