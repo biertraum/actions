@@ -19,7 +19,14 @@ then
 
    set -e
 
-   /usr/local/bin/composer install --no-interaction --no-progress --ignore-platform-reqs --download-only --no-dev --no-autoloader
+   COMPOSER_EXTRA_ARGS=""
+   if /usr/local/bin/composer install --help | grep -q -- '--download-only'; then
+     COMPOSER_EXTRA_ARGS="--download-only"
+   else
+     echo "$(/usr/local/bin/composer --version --no-ansi) does not support --download-only, skipping flag"
+   fi
+
+   /usr/local/bin/composer install --no-interaction --no-progress --ignore-platform-reqs $COMPOSER_EXTRA_ARGS --no-dev --no-autoloader
 
     chmod +x bin/magento
 
